@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab 5</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+
+  <script type="text/javascript">
+    function addStudent(){ 
+        var table = document.getElementById('s_table');
+
+        var rowCount = table.rows.length;
+
+        row = table.insertRow(rowCount),
+        cell1 = row.insertCell(0),
+        cell2 = row.insertCell(1);
+
+        cell1.innerHTML = document.getElementById('rno').value;
+        cell2.innerHTML = document.getElementById('sn').value;
+    }
+    function deleteLastStudent(){
+        var table = document.getElementById('s_table');
+        var rowCount = table.rows.length;
+        if(rowCount > '1'){
+            var row = table.deleteRow(rowCount-1);
+            rowCount--;
+        }
+        else{
+            alert('The table is empty');
+        }
+    }
+    </script>
+    
+
+  <body>
+    
+    <div class="mainEle2">
+        <div class="btn"> <h1 class="stHeading">Student Records</h1> 
+
+        <table id="s_table">
+            <tr>
+              <th>Roll No:</th>
+              <th>Student Name</th>
+            </tr>
+            <tr>
+              <td>2022201064</td>
+              <td>Vyshak</td>
+            </tr>
+            <tr>
+              <td>2022202008</td>
+              <td>Deepak</td>
+            </tr>
+          </table>
+        </div>
+        <div class="entry">
+            <div class="btn">
+              <label class="lb" for="rollno"><b>Roll No:</b></label>
+              <input class="ip" id="rno" type="text" placeholder="Roll No." name="rollno" required>
+            
+              <label class="lb" for="name"><b>Student Name</b></label>
+              <input class="ip" id="sn" type="text" placeholder="Student Name" name="name" required>
+            </div>
+            <div class="btns">
+                <button class="addnew" onclick="addStudent()">Add New</button>
+                <button class="del" onclick="deleteLastStudent()">Delete Last Record</button>
+            </div>
+        </div>
+    </div>
+
+	<script src="index.js"></script>
+  </body>
+</html>
